@@ -943,7 +943,7 @@ section{position:relative;z-index:2;}
       This one feels like us, Blossom.
     </p>
     <audio class="song-player" controls preload="metadata">
-      <source src="Yun Hi Tanu Weds Manu 128 Kbps.mp3" type="audio/mpeg">
+      <source src="yun-hi.mp3" type="audio/mpeg">
     </audio>
     <div class="custom-player" aria-label="Yun Hi music player">
       <div class="song-disc" id="song-disc" aria-hidden="true"></div>
@@ -1254,6 +1254,18 @@ songAudio.addEventListener('pause', () => {
   songToggle.textContent = '▶';
   songToggle.setAttribute('aria-label', 'Play Yun Hi');
   songDisc.classList.remove('playing');
+});
+
+songToggle.addEventListener('click', () => {
+  if (songAudio.paused) {
+    songAudio.play().catch(() => {
+      songToggle.textContent = '▶';
+      songToggle.setAttribute('aria-label', 'Play Yun Hi');
+      songDisc.classList.remove('playing');
+    });
+  } else {
+    songAudio.pause();
+  }
 });
 
 songAudio.addEventListener('loadedmetadata', updateSongBar);

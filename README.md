@@ -10,7 +10,7 @@ This project is a single-page website built with plain HTML, CSS, and JavaScript
 
 - `index.html` - main website file
 - `images/` - photo assets used by the page
-- `Yun Hi Tanu Weds Manu 128 Kbps.mp3` - background music file
+- `yun-hi.mp3` - background music file
 
 ## How To Open
 
