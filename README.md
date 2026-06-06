@@ -8,7 +8,7 @@ This project is a single-page website built with plain HTML, CSS, and JavaScript
 
 ## Files
 
-- `blossom-proposal.html` - main website file
+- `index.html` - main website file
 - `images/` - photo assets used by the page
 - `Yun Hi Tanu Weds Manu 128 Kbps.mp3` - background music file
 
@@ -17,7 +17,7 @@ This project is a single-page website built with plain HTML, CSS, and JavaScript
 No installation, build step, or Vercel deployment is needed.
 
 1. Download or clone this repository.
-2. Open `blossom-proposal.html` directly in any modern browser.
+2. Open `index.html` directly in any modern browser.
 
 ## Tech Used
 

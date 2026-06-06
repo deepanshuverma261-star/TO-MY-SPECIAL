@@ -1242,7 +1242,7 @@ function updateSongBar() {
   songProgress.setAttribute('aria-valuenow', Math.round(pct));
   songCurrent.textContent = songTime(current);
   songDuration.textContent = songTime(duration);   
-});
+}
 
 songAudio.addEventListener('play', () => {
   songToggle.textContent = '❚❚';
