@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -80,6 +80,52 @@ section{position:relative;z-index:2;}
 }
 .scroll-hint span{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);}
 .scroll-line{width:1px;height:52px;background:linear-gradient(var(--rose),transparent);animation:pulse 2s ease-in-out infinite;}
+
+/* ============== STICKER RIBBON ============== */
+.sticker-ribbon{
+  position:relative;
+  z-index:3;
+  max-width:900px;
+  margin:-4.5rem auto 1rem;
+  padding:0 1.2rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.85rem;
+  pointer-events:none;
+}
+.sticker{
+  --tilt:0deg;
+  display:inline-flex;
+  align-items:center;
+  gap:.42rem;
+  min-height:42px;
+  padding:.62rem .85rem;
+  border-radius:999px;
+  border:1px solid rgba(253,246,240,.2);
+  background:linear-gradient(135deg, rgba(253,246,240,.16), rgba(196,96,122,.12));
+  color:rgba(253,246,240,.9);
+  font-family:'Crimson Pro',serif;
+  font-size:1rem;
+  font-style:italic;
+  box-shadow:0 14px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.16);
+  transform:rotate(var(--tilt));
+  animation:stickerBob 4s ease-in-out infinite;
+  backdrop-filter:blur(12px);
+}
+.sticker:nth-child(1){--tilt:-4deg;animation-delay:.1s;}
+.sticker:nth-child(2){--tilt:3deg;animation-delay:.7s;}
+.sticker:nth-child(3){--tilt:-2deg;animation-delay:1.2s;}
+.sticker:nth-child(4){--tilt:4deg;animation-delay:1.8s;}
+.sticker-icon{
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:rgba(212,163,86,.18);
+  font-style:normal;
+}
 
 /* ============== SHAYARI SECTIONS ============== */
 .shayari-section{
@@ -214,6 +260,132 @@ section{position:relative;z-index:2;}
   line-height:1.35;
 }
 .polaroid-input{display:none;}
+
+/* ============== LITTLE MOMENTS ============== */
+#little-moments{
+  padding:5rem 1.5rem;
+  background:
+    radial-gradient(ellipse 55% 45% at 20% 20%, rgba(212,163,86,.12), transparent 68%),
+    radial-gradient(ellipse 60% 50% at 80% 65%, rgba(196,96,122,.14), transparent 70%);
+}
+.moments-inner{
+  max-width:1040px;
+  margin:0 auto;
+}
+.moments-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:2rem;
+  margin-bottom:2rem;
+}
+.moments-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.6rem);
+  font-weight:400;
+  font-style:italic;
+  color:var(--gold-l);
+}
+.moments-line{
+  max-width:360px;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.8;
+  font-weight:300;
+}
+.moments-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:1rem;
+}
+.moment-tile{
+  position:relative;
+  min-height:210px;
+  padding:1.15rem;
+  border:1px solid rgba(253,246,240,.13);
+  border-radius:8px;
+  overflow:hidden;
+  background:linear-gradient(145deg, rgba(253,246,240,.09), rgba(46,21,53,.42));
+  box-shadow:0 18px 42px rgba(0,0,0,.24);
+}
+.moment-tile::before{
+  content:'';
+  position:absolute;
+  inset:auto -25% -42% auto;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(232,160,178,.2), transparent 70%);
+}
+.moment-emoji{
+  display:block;
+  font-size:2.15rem;
+  margin-bottom:1rem;
+  animation:stickerBob 4.5s ease-in-out infinite;
+}
+.moment-kicker{
+  display:block;
+  color:var(--gold);
+  font-size:.66rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  margin-bottom:.75rem;
+}
+.moment-text{
+  position:relative;
+  color:rgba(255,255,255,.82);
+  font-family:'Crimson Pro',serif;
+  font-size:1.12rem;
+  line-height:1.65;
+}
+.love-capsule{
+  margin:1.2rem auto 0;
+  max-width:680px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:1rem;
+  align-items:center;
+  padding:1rem;
+  border:1px solid rgba(212,163,86,.18);
+  border-radius:8px;
+  background:rgba(13,8,16,.42);
+  box-shadow:0 22px 55px rgba(0,0,0,.2);
+}
+.capsule-btn{
+  width:74px;
+  height:74px;
+  border:0;
+  border-radius:50%;
+  color:#3a2030;
+  font-size:2rem;
+  cursor:pointer;
+  background:radial-gradient(circle at 35% 30%, #fff7e7 0 20%, var(--gold-l) 21% 48%, var(--gold) 49% 100%);
+  box-shadow:0 14px 28px rgba(0,0,0,.28), inset 0 2px 0 rgba(255,255,255,.62);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.capsule-btn:hover{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 20px 38px rgba(0,0,0,.34), 0 0 24px rgba(212,163,86,.18);
+}
+.capsule-copy{
+  min-height:68px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.capsule-label{
+  color:var(--gold);
+  font-size:.68rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.capsule-note{
+  color:rgba(255,255,255,.82);
+  font-family:'Crimson Pro',serif;
+  font-size:1.12rem;
+  line-height:1.55;
+}
 
 /* ============== OUR SONG ============== */
 #our-song{
@@ -497,6 +669,10 @@ section{position:relative;z-index:2;}
 /* ============== ANIMATIONS ============== */
 @keyframes riseIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 @keyframes pulse{0%,100%{opacity:.6;}50%{opacity:1;}}
+@keyframes stickerBob{
+  0%,100%{transform:translateY(0) rotate(var(--tilt,0deg));}
+  50%{transform:translateY(-8px) rotate(var(--tilt,0deg));}
+}
 @keyframes glowPulse{0%,100%{transform:scale(1);opacity:.7;}50%{transform:scale(1.08);opacity:1;}}
 @keyframes heartBeat{0%,100%{transform:scale(1);}50%{transform:scale(1.15);}}
 @keyframes ringFloat{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-10px) rotate(5deg);}}
@@ -558,6 +734,19 @@ section{position:relative;z-index:2;}
   }
   .scroll-hint{
     margin-top:2.8rem;
+  }
+  .sticker-ribbon{
+    margin:-2.5rem auto 0;
+    gap:.55rem;
+  }
+  .sticker{
+    min-height:36px;
+    padding:.52rem .68rem;
+    font-size:.88rem;
+  }
+  .sticker-icon{
+    width:22px;
+    height:22px;
   }
   .shayari-section{
     min-height:auto;
@@ -633,6 +822,27 @@ section{position:relative;z-index:2;}
   .polaroid-caption{
     min-height:2.8rem;
     font-size:.86rem;
+  }
+  #little-moments{
+    padding:4.5rem 1rem;
+  }
+  .moments-head{
+    display:block;
+    text-align:center;
+  }
+  .moments-line{
+    margin:1rem auto 0;
+  }
+  .moments-grid{
+    grid-template-columns:1fr;
+  }
+  .moment-tile{
+    min-height:176px;
+  }
+  .love-capsule{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
   }
   #our-song{
     padding:4.5rem 1rem;
@@ -735,6 +945,12 @@ section{position:relative;z-index:2;}
     width:min(280px,100%);
     justify-self:center;
   }
+  .moments-head{
+    align-items:start;
+  }
+  .moments-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
   #ring-section{
     min-height:auto;
     padding:5rem 1.5rem;
@@ -772,6 +988,13 @@ section{position:relative;z-index:2;}
     <div class="scroll-line"></div>
   </div>
 </section>
+
+<div class="sticker-ribbon" aria-hidden="true">
+  <span class="sticker"><span class="sticker-icon">🌸</span> my Blossom</span>
+  <span class="sticker"><span class="sticker-icon">🎮</span> from BGMI to forever</span>
+  <span class="sticker"><span class="sticker-icon">🌙</span> 3 AM comfort</span>
+  <span class="sticker"><span class="sticker-icon">💌</span> only Janvi</span>
+</div>
 
 <!-- == SHAYARI 1 == -->
 <section class="shayari-section reveal">
@@ -930,6 +1153,51 @@ section{position:relative;z-index:2;}
         </span>
         <span class="polaroid-caption">Blossom — the name I gave the best part of my life 💍</span>
       </label>
+    </div>
+  </div>
+</section>
+
+<section id="little-moments" class="reveal">
+  <div class="moments-inner">
+    <div class="moments-head">
+      <h2 class="moments-title">tiny moments, huge feelings</h2>
+      <p class="moments-line">
+        Some memories are small from outside, but inside my heart they keep glowing.
+      </p>
+    </div>
+
+    <div class="moments-grid">
+      <article class="moment-tile">
+        <span class="moment-emoji">🎮</span>
+        <span class="moment-kicker">first spark</span>
+        <p class="moment-text">One random match became the story I never want to leave.</p>
+      </article>
+
+      <article class="moment-tile">
+        <span class="moment-emoji">🌙</span>
+        <span class="moment-kicker">late nights</span>
+        <p class="moment-text">Your voice made ordinary nights feel like home.</p>
+      </article>
+
+      <article class="moment-tile">
+        <span class="moment-emoji">🌸</span>
+        <span class="moment-kicker">your name</span>
+        <p class="moment-text">Janvi became Blossom because you made everything softer.</p>
+      </article>
+
+      <article class="moment-tile">
+        <span class="moment-emoji">💍</span>
+        <span class="moment-kicker">forever</span>
+        <p class="moment-text">Every little memory keeps pointing me toward one answer: you.</p>
+      </article>
+    </div>
+
+    <div class="love-capsule">
+      <button class="capsule-btn" id="capsule-btn" type="button" aria-label="Open another love note">💌</button>
+      <div class="capsule-copy" aria-live="polite">
+        <p class="capsule-label">a little note</p>
+        <p class="capsule-note" id="capsule-note">Tap the note whenever you want one more reason I choose you.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1218,6 +1486,26 @@ document.querySelectorAll('.polaroid-input').forEach(input => {
     img.dataset.objectUrl = objectUrl;
     card.classList.add('has-photo');
   });
+});
+
+// —— Little love capsule ——
+const capsuleBtn = document.getElementById('capsule-btn');
+const capsuleNote = document.getElementById('capsule-note');
+const capsuleNotes = [
+  'I choose your laugh, your courage, your softness, and even the way you overthink small things.',
+  'Distance can keep cities apart, but it never managed to keep you away from my heart.',
+  'Every call with you feels like the universe lowering its voice just for us.',
+  'You are my favourite notification, my calm place, and my most serious wish.',
+  'If love had a saved game, I would replay the day I met you again and again.'
+];
+let capsuleIndex = 0;
+capsuleBtn.addEventListener('click', () => {
+  capsuleNote.textContent = capsuleNotes[capsuleIndex];
+  capsuleBtn.style.transform = 'scale(.92) rotate(-8deg)';
+  setTimeout(() => {
+    capsuleBtn.style.transform = '';
+  }, 180);
+  capsuleIndex = (capsuleIndex + 1) % capsuleNotes.length;
 });
 
 // —— Custom Yun Hi player ——
